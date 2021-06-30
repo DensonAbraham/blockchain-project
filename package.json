@@ -1,0 +1,54 @@
+{
+    "name": "hubble-server",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "nodemon --exec \"yarn lint && node ./app/start.js\"",
+        "run": "node ./app/index.js",
+        "pretty": "pretty-quick",
+        "lint": "eslint app/**/*.js",
+        "test": "jest --runInBand --detectOpenHandles",
+        "test:watch": "jest --watch"
+    },
+    "dependencies": {
+        "@shelf/jest-mongodb": "^1.2.2",
+        "bcrypt": "^5.0.0",
+        "cors": "^2.8.5",
+        "date-fns": "^2.16.1",
+        "dotenv": "^8.2.0",
+        "express": "~4.16.1",
+        "express-jwt": "^6.0.0",
+        "faker": "4.1.0",
+        "joi": "^17.1.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.9.27",
+        "morgan": "~1.9.1",
+        "redis": "^3.0.2"
+    },
+    "devDependencies": {
+        "eslint": "^7.5.0",
+        "eslint-plugin-jest": "^23.20.0",
+        "husky": "^4.2.5",
+        "jest": "^26.2.2",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.0.5",
+        "pretty-quick": "^2.0.1",
+        "supertest": "^4.0.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    },
+    "nodemonConfig": {
+        "ignore": [
+            "node_modules/*"
+        ]
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    }
+}
